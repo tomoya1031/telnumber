@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/list.js"></script>
+	<title>電話帳</title>
+</head>
+<body>
+<div class="container">
+	<div class="card mt-4">
+		<h3 class="card-header">電話帳編集</h3>
+		<div class="card-body">
+			<form th:action="@{edit/save}" method="post" th:object="${telDataForm}">
+				<div class="col form-group">
+					<label>氏名</label>
+					<input type="text" class="form-control" th:field="*{userName}" size="40" maxlength="30" placeholder="氏名">
+				</div>
+				<div class="col form-group">
+					<label>電話番号</label>
+					<input type="tel" class="form-control" th:field="*{telNo}" size="20" maxlength="12" placeholder="電話番号">
+				</div>
+				<div class="col form-group">
+					<label>メールアドレス</label>
+					<input type="email" class="form-control" th:field="*{mailAddr}" size="20" maxlength="50" placeholder="メールアドレス">
+				</div>
+				<input type="hidden" th:field="*{id}">
+				<div class="col">
+					<input type="submit" class="btn btn-primary" value="保存">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>
